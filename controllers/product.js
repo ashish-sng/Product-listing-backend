@@ -43,6 +43,7 @@ exports.addProduct = async (req, res) => {
     res.status(400).json("Hoya:Error: " + err);
   }
 };
+
 exports.getProductById = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
@@ -51,10 +52,14 @@ exports.getProductById = async (req, res) => {
     res.status(400).json("Error: " + err);
   }
 };
+
 exports.updateProductById = async (req, res) => {
   try {
-    const product = await Product.findById(req.params.id);
+    if (!req.body.id) {
+      return res.status(400).json({ message: "Product id is required" });
+    }
 
+    const product = await Product.findById(req.body.id);
     product.companyName = req.body.companyName;
     product.category = req.body.category;
     product.imageURL = req.body.imageURL;
@@ -62,8 +67,9 @@ exports.updateProductById = async (req, res) => {
     product.description = req.body.description;
 
     await product.save();
-    res.json("Product updated!");
+    res.status(200).json({ message: "Product updated successfully" });
   } catch (err) {
+    console.log(err);
     res.status(400).json("Error: " + err);
   }
 };
