@@ -3,6 +3,10 @@
 ## Description
 Job Listing Platform is a web application built using the MERN stack (MongoDB, Express, React, Node.js). This repository contains the server-side code for the Job Listing Platform. The server provides the API endpoints and handles the business logic for user authentication, project management, and data storage. JWT tokens are used for authorization and authentication.
 
+## Demo Video
+
+https://github.com/ashish-sng/Product-listing-backend/assets/68745052/5d0c7792-fb79-4b4f-bc5e-81502b8c480e
+
 ## Installation
 
 1. Clone the repository:
